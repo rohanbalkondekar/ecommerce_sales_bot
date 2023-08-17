@@ -1,0 +1,138 @@
+[
+    {
+        "id": "buy",
+        "serial_number": 1,
+        "brand": "H&M",
+        "name": "Men Black Relaxed Fit Hoodie",
+        "link": "https://www.myntra.com/sweatshirts/hm/hm-men-black-relaxed-fit-hoodie/15193748/buy",
+        "description": "Hoodie in sweatshirt fabric made from a cotton blend. Relaxed fit with a lined, drawstring hood, long sleeves, kangaroo pocket and ribbing at the cuffs and hem. Soft brushed inside.",
+        "price": "Rs. 1499",
+        "rating": "4.3|3.2k Ratings",
+        "specs": {
+            "Sleeve Length": "Long Sleeves",
+            "Neck": "Hood",
+            "Pattern": "Solid",
+            "Length": "Regular",
+            "Type": "Pullover",
+            "Print or Pattern Type": "Solid",
+            "Hood": "Hooded",
+            "Number of Pockets": "2"
+        },
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ]
+    },
+    {
+        "id": "buy",
+        "serial_number": 2,
+        "brand": "The Indian Garage Co",
+        "name": "Men White & Teal Blue Slim Fit Striped Casual Shirt",
+        "link": "https://www.myntra.com/shirts/the-indian-garage-co/the-indian-garage-co-men-white--teal-blue-slim-fit-striped-casual-shirt/10673544/buy",
+        "description": "White and teal blue striped casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+        "price": "\u20b9527",
+        "rating": "4.1|20.8k Ratings",
+        "specs": {
+            "Sleeve Length": "Long Sleeves",
+            "Collar": "Spread Collar",
+            "Fit": "Slim Fit",
+            "Print or Pattern Type": "Vertical Stripes",
+            "Occasion": "Casual",
+            "Length": "Regular",
+            "Hemline": "Curved",
+            "Placket": "Button Placket"
+        },
+        "sizes": [
+            "38",
+            "40",
+            "42",
+            "44",
+            "46"
+        ]
+    },
+    {
+        "id": "buy",
+        "serial_number": 3,
+        "brand": "HERE&NOW",
+        "name": "Men Black Slim Fit Casual Shirt",
+        "link": "https://www.myntra.com/shirts/herenow/herenow-men-black-slim-fit-casual-shirt/19818628/buy",
+        "description": "Black solid opaque Casual shirt ,has a spread collar,  button placket,  na pocket, short regular sleeves,  straight hem",
+        "price": "\u20b9699",
+        "rating": "4.3|6.1k Ratings",
+        "specs": {
+            "Sleeve Length": "Short Sleeves",
+            "Collar": "Spread Collar",
+            "Fit": "Slim Fit",
+            "Print or Pattern Type": "Solid",
+            "Occasion": "Casual",
+            "Length": "Regular",
+            "Hemline": "Straight",
+            "Placket": "Button Placket"
+        },
+        "sizes": [
+            "38",
+            "40",
+            "42",
+            "44",
+            "46"
+        ]
+    },
+    {
+        "id": "buy",
+        "serial_number": 4,
+        "brand": "Roadster",
+        "name": "Men Black Solid Hooded Sweatshirt",
+        "link": "https://www.myntra.com/sweatshirts/roadster/roadster-men-black-solid-hooded-sweatshirt/11959220/buy",
+        "description": "Black solid sweatshirt, has a hood, one pocket, long sleeves, ribbed hem",
+        "price": "\u20b9999",
+        "rating": "4.2|1.8k Ratings",
+        "specs": {
+            "Sleeve Length": "Long Sleeves",
+            "Neck": "Hood",
+            "Pattern": "Solid",
+            "Length": "Regular",
+            "Type": "Pullover",
+            "Print or Pattern Type": "Solid",
+            "Hood": "Hooded",
+            "Number of Pockets": "1"
+        },
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ]
+    },
+    {
+        "id": "buy",
+        "serial_number": 5,
+        "brand": "LOCOMOTIVE",
+        "name": "Men Black & Grey Slim Fit Checked Casual Shirt",
+        "link": "https://www.myntra.com/shirts/locomotive/locomotive-men-black--grey-slim-fit-checked-casual-shirt/10341699/buy",
+        "description": "Black and grey checked casual shirt, has a spread collar, long roll-up sleeves, button placket, curved hem, and 1 patch pocket",
+        "price": "\u20b9999",
+        "rating": "4|10.6k Ratings",
+        "specs": {
+            "Sleeve Length": "Long Sleeves",
+            "Collar": "Spread Collar",
+            "Fit": "Slim Fit",
+            "Print or Pattern Type": "Other Checks",
+            "Occasion": "Casual",
+            "Length": "Regular",
+            "Hemline": "Curved",
+            "Placket": "Button Placket"
+        },
+        "sizes": [
+            "39 Rs. 649",
+            "40 Rs. 999",
+            "42 Rs. 999",
+            "44 Rs. 999"
+        ]
+    }
+]
