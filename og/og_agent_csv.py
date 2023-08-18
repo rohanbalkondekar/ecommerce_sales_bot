@@ -1,16 +1,13 @@
 import openai
+from py_expression_eval import Parser
 import os
+from termcolor import colored
 import tiktoken
 from dotenv import load_dotenv
-from termcolor import colored
 
 import pandas as pd
 from langchain.agents import create_csv_agent
 from langchain.llms import OpenAI
-
-import faiss
-import pickle
-from sentence_transformers import SentenceTransformer
 
 load_dotenv()
 
@@ -22,12 +19,14 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 PROMPT = """
 Answer the following questions and obey the following commands as best you can. 
 
-You are an sales agent of Myntra: Online Shopping Site for Fashion & Lifestyle in India. India's Fashion Expert brings you a variety of footwear, Clothing, Accessories and lifestyle products
-You help customers find product of their choice from a large collection of Men Topwear, Women Footwear and Kids Toys. Use the results from the tool and answer the customer's questions in polite manner, Remember you are a kind and polite sales person, remain enthusiastic throughout the conversation.
+You are a Data analyst, you are provided with a csv file, your task is to answer questions based on data from the CSV file.
+After getting answer from the tools, you should always check if you have enough information to answer the user question, if not use the provided tools again.
+But take care not to get stuck in a loop.
 
 You have access to the following tools:
 
-Semantic_Search: Useful for when you need to find products according to clients requirements. Tools Input should be a string which will be semantically search in the product database, Tool will output Five most semantically similar product with respect to the input.
+CSV_Search: Useful for when you need to find data according to user requirements. You should ask targeted and complete questions in natural human language.
+Calculator: Useful for when you need to answer questions about math. Use python code, eg: 2 + 2
 Response To Human: When you need to respond to the human you are talking to.
  
 You will receive a message from the human, then you should start a loop and do one of two things
@@ -35,7 +34,7 @@ You will receive a message from the human, then you should start a loop and do o
 Option 1: You use a tool to answer the question.
 For this, you should use the following format:
 Thought: you should always think about what to do
-Action: the action to take, should be one of [Semantic_Search]
+Action: the action to take, should be one of [CSV_Search, Calculator]
 Action Input: the input to the action, to be sent to the tool
  
 After this, the human will respond with an observation, and you will continue.
@@ -48,29 +47,16 @@ Action Input: your response to the human, summarizing what you did and what you 
 Begin!
 """
  
-##################
-# Retrieve the stored list
-directory = "./ingested_data/list"
-file_path = os.path.join(directory, "list.pkl")
-
-if os.path.exists(file_path):
-    with open(file_path, "rb") as file:
-        stored_list = pickle.load(file)
-        # print(stored_list)
-else:
-    print("List file does not exist.")
-data = stored_list
-##################
-
-def semantic_search(str):
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    index = faiss.read_index('./ingested_data/index/index')
-
-    query_vector = model.encode([str])
-    k = 3
-    top_k = index.search(query_vector, k)
-    results = [data[_id] for _id in top_k[1].tolist()[0]]
-    return "\n\n".join(results)
+def csv_search(str):
+    csv = "./Salary_Data.csv"
+    agent = create_csv_agent(OpenAI(temperature=0), csv, verbose=False)
+    result = agent.run(str)
+    print("\n--------\n" + result + "\n--------\n")
+    return result
+ 
+parser = Parser()
+def calculator(str):
+    return parser.parse(str).evaluate({})
  
 
 def agent(starting_message):
@@ -116,10 +102,10 @@ def agent(starting_message):
         action_input = responses.split("Action Input: ")[1].split("\n")[0].strip()
 
 
-        # if action == "CSV_Search":
-        #     tool = csv_search
-        if action == "Semantic_Search": 
-            tool = semantic_search
+        if action == "CSV_Search":
+            tool = csv_search
+        elif action == "Calculator": 
+            tool = calculator
         elif action == "Response To Human":
             print(f"Response: {action_input}")
             user_input = input("Next message >> ")
@@ -142,4 +128,5 @@ def agent(starting_message):
         ])                
         
 
-agent("I want to gift a white T shirt")
+# agent("I need a blue kurta. I am 21 years old female.")
+agent("What is the salary of software developers?")

@@ -6,7 +6,7 @@ import pickle
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-# embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+# embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl") ## Better Model but requires high computation
 
 ingested_data_directory = "./ingested_data"
 if not os.path.exists(ingested_data_directory):
